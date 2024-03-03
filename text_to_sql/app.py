@@ -109,7 +109,7 @@ if submit:
         st.subheader('SQL Query:')
         st.code(response)
         try:
-            response1=read_sql_query(response,"EMPLOYEE.db")
+            response1=read_sql_query(response,"student.db")
             if response1:
                         st.subheader('Response:')
                         st.dataframe(response1)
