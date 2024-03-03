@@ -33,25 +33,22 @@ def create_and_populate_database():
     """
     cursor.execute(table_info)
 
-    # Insert records if the table is empty
-    cursor.execute('''SELECT COUNT(*) FROM COSTA_EMPLOYEE''')
-    if cursor.fetchone()[0] == 0:
-        records = [
-            ('ASHUTOSH', 'SOFTWARE ENGINEER', 'NLP', 22000),
-            ('RUPA', 'SOFTWARE ENGINEER', 'NLP', 25000),
-            ('NAVEEN', 'SOFTWARE ENGINEER', 'MACHINE LEARNING', 25000),
-            ('AMIT', 'SENIOR SOFTWARE ENGINEER', 'COMPUTER VISION', 25000),
-            ('ARIZ', 'SOFTWARE ENGINEER', 'DATA ANALYTICS', 25000),
-            ('ANKIT', 'JUNIOR ENGINEER', 'DATA ANALYTICS', 26500),
-            ('SANDEEP', 'SOFTWARE ENGINEER', 'MACHINE LEARNING', 25000),
-            ('MANSI', 'INTERN', 'NLP', 0),
-            ('KHUSHI', 'INTERN', 'NLP', 0),
-            ('DEEPIKA', 'HR', 'RECRUITER', 33000)
-        ]
+    cursor.execute('''Insert Into COSTA_EMPLOYEE values('ASHUTOSH','SOFTWARE ENGINEER','NLP',22000)''')
+    cursor.execute('''Insert Into COSTA_EMPLOYEE values('RUPA','SOFTWARE ENGINEER','NLP',25000)''')
+    cursor.execute('''Insert Into COSTA_EMPLOYEE values('NAVEEN','SOFTWARE ENGINEER','MACHINE LEARNING',25000)''')
+    cursor.execute('''Insert Into COSTA_EMPLOYEE values('AMIT','SENIOR SOFTWARE ENGINEER','COMPUTER VISION',25000)''')
+    cursor.execute('''Insert Into COSTA_EMPLOYEE values('ARIZ','SOFTWARE ENGINEER','DATA ANALYTICS',25000)''')
+    cursor.execute('''Insert Into COSTA_EMPLOYEE values('ANKIT','JUNIOR ENGINEER','DATA ANALYTICS',26500)''')
+    cursor.execute('''Insert Into COSTA_EMPLOYEE values('SANDEEP','SOFTWARE ENGINEER','MACHINE LEARNING',25000)''')
+    cursor.execute('''Insert Into COSTA_EMPLOYEE values('MANSI','INTERN','NLP',0)''')
+    cursor.execute('''Insert Into COSTA_EMPLOYEE values('KHUSHI','INTERN','NLP',0)''')
+    cursor.execute('''Insert Into COSTA_EMPLOYEE values('DEEPIKA','HR','RECRUITER',33000)''')
+
        
     connection.commit()
     connection.close()
 create_and_populate_database()
+
 ## Fucntion To retrieve query from the database
 
 def read_sql_query(sql,db):
@@ -59,11 +56,8 @@ def read_sql_query(sql,db):
     cur=conn.cursor()
     cur.execute(sql)
     rows=cur.fetchall()
-    print(rows)
     conn.commit()
     conn.close()
-    for row in rows:
-        print(row)
     return rows
 
 
@@ -133,9 +127,9 @@ st.markdown(
 
 st.header("App To Retrieve SQL Data")
 
-question=st.text_area('Enter your SQL query:', '')
+question=st.text_area('Enter Your query:', '')
 
-submit=st.button("Ask the question")
+submit=st.button("Hit Me")
 
 # if submit is clicked
 if submit:
