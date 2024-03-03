@@ -54,7 +54,7 @@ def conect_to_data():
         print("The inserted  records are")
         data=cursor.execute('''Select * from COSTA_EMPLOYEE''')
         for row in data:
-        print(row)
+           print(row)
         
         ## Commit your changes int he databse
         connection.commit()
