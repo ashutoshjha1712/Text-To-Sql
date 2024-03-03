@@ -48,8 +48,7 @@ def create_and_populate_database():
             ('KHUSHI', 'INTERN', 'NLP', 0),
             ('DEEPIKA', 'HR', 'RECRUITER', 33000)
         ]
-        cursor.executemany('''INSERT INTO COSTA_EMPLOYEE VALUES (?, ?, ?, ?)''', records)
-
+       
     connection.commit()
     connection.close()
 create_and_populate_database()
