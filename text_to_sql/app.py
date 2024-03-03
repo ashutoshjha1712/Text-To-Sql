@@ -17,6 +17,42 @@ def get_gemini_response(question,prompt):
     response=model.generate_content([prompt[0],question])
     return response.text
 
+# Create SQLite Database and Insert Records
+def create_and_populate_database():
+    connection = sqlite3.connect("EMPLOYEE.db")
+    cursor = connection.cursor()
+
+    # Create the table if it doesn't exist
+    table_info = """
+    CREATE TABLE IF NOT EXISTS COSTA_EMPLOYEE(
+        NAME VARCHAR(25),
+        DESIGNATION VARCHAR(25),
+        DEPARTMENT VARCHAR(25),
+        SALARY INT
+    );
+    """
+    cursor.execute(table_info)
+
+    # Insert records if the table is empty
+    cursor.execute('''SELECT COUNT(*) FROM COSTA_EMPLOYEE''')
+    if cursor.fetchone()[0] == 0:
+        records = [
+            ('ASHUTOSH', 'SOFTWARE ENGINEER', 'NLP', 22000),
+            ('RUPA', 'SOFTWARE ENGINEER', 'NLP', 25000),
+            ('NAVEEN', 'SOFTWARE ENGINEER', 'MACHINE LEARNING', 25000),
+            ('AMIT', 'SENIOR SOFTWARE ENGINEER', 'COMPUTER VISION', 25000),
+            ('ARIZ', 'SOFTWARE ENGINEER', 'DATA ANALYTICS', 25000),
+            ('ANKIT', 'JUNIOR ENGINEER', 'DATA ANALYTICS', 26500),
+            ('SANDEEP', 'SOFTWARE ENGINEER', 'MACHINE LEARNING', 25000),
+            ('MANSI', 'INTERN', 'NLP', 0),
+            ('KHUSHI', 'INTERN', 'NLP', 0),
+            ('DEEPIKA', 'HR', 'RECRUITER', 33000)
+        ]
+        cursor.executemany('''INSERT INTO COSTA_EMPLOYEE VALUES (?, ?, ?, ?)''', records)
+
+    connection.commit()
+    connection.close()
+create_and_populate_database()
 ## Fucntion To retrieve query from the database
 
 def read_sql_query(sql,db):
