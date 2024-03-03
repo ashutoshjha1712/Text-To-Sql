@@ -18,35 +18,6 @@ def get_gemini_response(question,prompt):
     return response.text
 
 # Create SQLite Database and Insert Records
-def create_and_populate_database():
-    connection = sqlite3.connect("EMPLOYEE.db")
-    cursor = connection.cursor()
-
-    # Create the table if it doesn't exist
-    table_info = """
-    CREATE TABLE IF NOT EXISTS COSTA_EMPLOYEE(
-        NAME VARCHAR(25),
-        DESIGNATION VARCHAR(25),
-        DEPARTMENT VARCHAR(25),
-        SALARY INT
-    );
-    """
-    cursor.execute(table_info)
-
-    cursor.execute('''Insert Into COSTA_EMPLOYEE values('ASHUTOSH','SOFTWARE ENGINEER','NLP',22000)''')
-    cursor.execute('''Insert Into COSTA_EMPLOYEE values('RUPA','SOFTWARE ENGINEER','NLP',25000)''')
-    cursor.execute('''Insert Into COSTA_EMPLOYEE values('NAVEEN','SOFTWARE ENGINEER','MACHINE LEARNING',25000)''')
-    cursor.execute('''Insert Into COSTA_EMPLOYEE values('AMIT','SENIOR SOFTWARE ENGINEER','COMPUTER VISION',25000)''')
-    cursor.execute('''Insert Into COSTA_EMPLOYEE values('ARIZ','SOFTWARE ENGINEER','DATA ANALYTICS',25000)''')
-    cursor.execute('''Insert Into COSTA_EMPLOYEE values('ANKIT','JUNIOR ENGINEER','DATA ANALYTICS',26500)''')
-    cursor.execute('''Insert Into COSTA_EMPLOYEE values('SANDEEP','SOFTWARE ENGINEER','MACHINE LEARNING',25000)''')
-    cursor.execute('''Insert Into COSTA_EMPLOYEE values('MANSI','INTERN','NLP',0)''')
-    cursor.execute('''Insert Into COSTA_EMPLOYEE values('KHUSHI','INTERN','NLP',0)''')
-    cursor.execute('''Insert Into COSTA_EMPLOYEE values('DEEPIKA','HR','RECRUITER',33000)''')
-
-       
-    connection.commit()
-    connection.close()
 
 ## Fucntion To retrieve query from the database
 
