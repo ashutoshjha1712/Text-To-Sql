@@ -125,11 +125,11 @@ st.markdown(
 ## Streamlit App
 
 
-st.header("App To Retrieve SQL Data")
+st.header("App To Retrieve Data From Database")
 
-question=st.text_area('Enter Your query:', '')
+question=st.text_area('Enter Your Query:', '')
 
-submit=st.button("Hit Me")
+submit=st.button("Question To Me")
 
 # if submit is clicked
 if submit:
