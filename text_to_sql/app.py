@@ -29,7 +29,6 @@ cursor=connection.cursor()
 table_info="""
 Create table COSTA_EMPLOYEE(NAME VARCHAR(25),DESIGNATION VARCHAR(25),
 DEPARTMENT VARCHAR(25),SALARY INT);
-
 """
 cursor.execute(table_info)
 
