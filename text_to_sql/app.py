@@ -47,7 +47,6 @@ def create_and_populate_database():
        
     connection.commit()
     connection.close()
-create_and_populate_database()
 
 ## Fucntion To retrieve query from the database
 
